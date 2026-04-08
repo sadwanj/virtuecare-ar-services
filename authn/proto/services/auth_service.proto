@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "services/core.proto";
+
+service AuthService{
+    
+    rpc Register(RegisterRequest) returns (RegisterResponse);
+    
+    rpc Login(LoginRequest) returns (LoginResponse);
+}
