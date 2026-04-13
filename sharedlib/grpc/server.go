@@ -19,7 +19,7 @@ type Config struct {
 	Host string
 	Port string
 	//DB       *gorm.DB
-	Services []string // List of service names for health reporting
+	//Services []string // List of service names for health reporting
 }
 
 // Server represents a generic gRPC server
@@ -63,10 +63,10 @@ func (s *Server) Start() error {
 
 	// Set all services to SERVING
 	s.health.SetServingStatus("", grpc_health_v1.HealthCheckResponse_SERVING)
-	for _, svc := range s.config.Services {
-		s.health.SetServingStatus(svc, grpc_health_v1.HealthCheckResponse_SERVING)
-	}
-
+	// for _, svc := range s.config.Services {
+	// 	s.health.SetServingStatus(svc, grpc_health_v1.HealthCheckResponse_SERVING)
+	// }
+	fmt.Println("AAAAAAAAAAAAAAAAA")
 	return s.server.Serve(lis)
 }
 
